@@ -4,33 +4,37 @@ from kivy.clock import Clock
 
 
 class MyLabel(Label):
-    """ A custom label that will update itself every second
+    """ A custom label that will update itself every second and stop when it reaches 10
     """
     counter = 0
 
     def __init__(self, **kwargs):
+        """ Initalise the label to update twice ever second
+        """
         super(MyLabel, self).__init__(**kwargs)
-        self.text = "Test"
 
         # Schedule an event
-        updateCounter = Clock.schedule_interval(self.changeText, 1/60)
+        update_counter = Clock.schedule_interval(self.change_text, 1/2)
 
-
-    def changeText(self, dt):
+    def change_text(self, dt):
         """ All 'callbacks' need to have the dt (delta time) argument
         in order to be able to be called from the scheduler
         """
         self.counter += 1
         self.text = 'The counter is now: ' + str(self.counter)
 
+        # If the counter is 10, then unschedule the event by returning false
         if self.counter == 10:
+            self.text = 'The counter stopped at ' + str(self.counter)
             return False
 
-class repetingEvent(App):
 
+class RepeatingEvent(App):
+    """ Main class that will build
+    """
     def build(self):
         return MyLabel()
 
 
 if __name__ == '__main__':
-    repetingEvent().run()
+    RepeatingEvent().run()
