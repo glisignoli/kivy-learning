@@ -1,6 +1,9 @@
+import kivy
 from kivy.app import App
 from kivy.uix.label import Label
 from kivy.clock import Clock
+
+kivy.require('1.9.1')
 
 
 class MyLabel(Label):
@@ -19,11 +22,12 @@ class MyLabel(Label):
         update_counter = Clock.schedule_interval(self.change_text, 5)
 
     def change_text(self, dt):
-        """ Change the background of the label to red
+        """ Change the text of the label to changed!
         """
         self.text = 'Changed!'
 
-class OneTimeEvent(App):
+
+class OneTimeEventApp(App):
     """ Main class that will build
     """
     def build(self):
@@ -31,4 +35,4 @@ class OneTimeEvent(App):
 
 
 if __name__ == '__main__':
-    OneTimeEvent().run()
+    OneTimeEventApp().run()

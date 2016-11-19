@@ -1,0 +1,20 @@
+#:kivy 1.9.1
+
+<BreakoutGame>:
+    BreakoutBall:
+        id: ball
+        center: self.parent.center
+
+<BreakoutBall>:
+    size: 25, 25
+    canvas:
+        Ellipse:
+            pos: self.pos
+            size: self.size
+
+<BreakoutPaddle>:
+    size: 25, 10
+    canvas:
+        Rectangle:
+            pos: self.pos
+            size: self.size

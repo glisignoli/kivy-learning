@@ -1,6 +1,8 @@
+import kivy
 from kivy.app import App
 from kivy.uix.label import Label
 from kivy.clock import Clock
+kivy.require('1.9.1')
 
 
 class MyLabel(Label):
@@ -14,7 +16,7 @@ class MyLabel(Label):
         super(MyLabel, self).__init__(**kwargs)
 
         # Schedule an event
-        update_counter = Clock.schedule_interval(self.change_text, 1/2)
+        Clock.schedule_interval(self.change_text, 1/2)
 
     def change_text(self, dt):
         """ All 'callbacks' need to have the dt (delta time) argument
@@ -29,7 +31,7 @@ class MyLabel(Label):
             return False
 
 
-class RepeatingEvent(App):
+class RepeatingEventApp(App):
     """ Main class that will build
     """
     def build(self):

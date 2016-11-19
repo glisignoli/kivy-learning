@@ -1,9 +1,10 @@
+import kivy
 from kivy.app import App
 from kivy.uix.button import Button
 from kivy.uix.label import Label
 from kivy.clock import Clock
 from kivy.uix.gridlayout import GridLayout
-
+kivy.require('1.9.1')
 
 class MyGrid(GridLayout):
     """ Create a gridlayout that contains a button and a label
@@ -33,7 +34,7 @@ class MyLabel(Label):
     counter = 0
 
     def __init__(self, **kwargs):
-        """ Initally create the counter text
+        """ Initalise the label with the counter with text
         """
         super(MyLabel, self).__init__(**kwargs)
         self.text = 'The counter is now: ' + str(self.counter)
@@ -45,7 +46,7 @@ class MyLabel(Label):
         self.text = 'The counter is now: ' + str(self.counter)
 
 
-class TriggerEvent(App):
+class TriggerEventApp(App):
     """ Main class that will build
     """
     def build(self):
@@ -53,4 +54,4 @@ class TriggerEvent(App):
 
 
 if __name__ == '__main__':
-    TriggerEvent().run()
+    TriggerEventApp().run()

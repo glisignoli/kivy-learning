@@ -1,3 +1,4 @@
+import kivy
 from kivy.app import App
 from kivy.uix.widget import Widget
 from kivy.properties import NumericProperty, ReferenceListProperty,\
@@ -5,6 +6,7 @@ from kivy.properties import NumericProperty, ReferenceListProperty,\
 from kivy.vector import Vector
 from kivy.clock import Clock
 
+kivy.require('1.9.1')
 
 class PongPaddle(Widget):
     score = NumericProperty(0)
