@@ -2,7 +2,6 @@ import kivy
 from kivy.core.window import Window
 from kivy.app import App
 from kivy.uix.gridlayout import GridLayout
-from kivy.clock import Clock
 kivy.require('1.9.1')
 
 
